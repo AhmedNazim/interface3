@@ -4,7 +4,7 @@ void Cl_personnel::afficher()
 {
 	String^ constring = "Data Source=LAPTOP-PU1057KM\SQLEXPRESS;Initial Catalog=code lyoko;Integrated Security=True";
 	SqlConnection^ conDataBase = gcnew SqlConnection(constring);
-	SqlCommand^ cmdDataBase = gcnew SqlCommand("SELCET * FROM personnel", conDataBase);
+	SqlCommand^ cmdDataBase = gcnew SqlCommand("SELECT * FROM personnel", conDataBase);
 
 	conDataBase->Open();
 	SqlDataReader^ myReader = cmdDataBase->ExecuteReader();
