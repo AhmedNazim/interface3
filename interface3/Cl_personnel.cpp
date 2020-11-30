@@ -1,4 +1,4 @@
-
+ï»¿
 #include "Cl_personnel.h"
 void Cl_personnel::afficher()
 {
@@ -8,6 +8,8 @@ void Cl_personnel::afficher()
 	//requete sql
 	SqlCommand^ cmdDataBase = gcnew SqlCommand("SELCET * FROM personnel WHERE nomPER= '"+nom+"' and prenonPER='"+ prenon+"'", conDataBase);
 	//excution de la requete 
+	SqlCommand^ cmdDataBase = gcnew SqlCommand("SELECT * FROM personnel", conDataBase);
+
 	conDataBase->Open();
 	SqlDataReader^ myReader = cmdDataBase->ExecuteReader();
 }
@@ -16,7 +18,7 @@ void Cl_personnel::modifier()
 	String^ constring = "Data Source=LAPTOP-PU1057KM\SQLEXPRESS;Initial Catalog=codelyoko;Integrated Security=True";
 	SqlConnection^ conDataBase = gcnew SqlConnection(constring);
 	//lecture du element du formulaire ?! 
-	//requete sql (ecraser les données de la personne ) 
+	//requete sql (ecraser les donnï¿½es de la personne ) 
 	SqlCommand^ cmdDataBase = gcnew SqlCommand("UPDATE personneel SET nomPER='"+nom+"',prenomPER='"+prenom+"',supH='"+sup+"',DateAmb='"+date+"',ID_personnel=ID WHERE nom ='" sup"');", conDataBase)
 	//excution de la requete 
 	conDataBase->Open();
@@ -31,7 +33,7 @@ void Cl_personnel::ajouter()
 	String^ constring = "Data Source=LAPTOP-PU1057KM\SQLEXPRESS;Initial Catalog=codelyoko;Integrated Security=True";
 	SqlConnection^ conDataBase = gcnew SqlConnection(constring);
 	//lecture de l'element du formulaire ?! 
-	//requete sql (ajouter l'element dans la base de données ) 
+	//requete sql (ajouter l'element dans la base de donnï¿½es ) 
 	SqlCommand^ cmdDataBase = gcnew SqlCommand("INSERT INTO personne(nomPER, prenomPER, supH, DateAmb, ID_personnel) VALUES ('" + nom + "',"+prenom+"','" + sup + "'," + date + "ID_personnel=ID WHERE nom ='" sup"')", conDataBase);
 	//excution de la requete 
 	conDataBase->Open();
